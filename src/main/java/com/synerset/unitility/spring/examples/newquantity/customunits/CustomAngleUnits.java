@@ -3,6 +3,7 @@ package com.synerset.unitility.spring.examples.newquantity.customunits;
 import com.synerset.unitility.unitsystem.common.AngleUnit;
 import com.synerset.unitility.unitsystem.common.AngleUnits;
 import com.synerset.unitility.unitsystem.exceptions.UnitSystemArgumentException;
+import com.synerset.unitility.unitsystem.utils.StringTransformer;
 
 import java.util.function.DoubleUnaryOperator;
 
@@ -52,13 +53,9 @@ public enum CustomAngleUnits implements AngleUnit {
     }
 
     private static String formatSymbol(String inputString) {
-        return inputString
-                .trim()
-                .toLowerCase()
-                .replace(" ", "")
-                .replace("o", "°")
-                .replace("deg", "°")
-                .replace("radian", "rad");
+        return StringTransformer.of(inputString)
+                .trimLowerAndClean()
+                .toString();
     }
 
 }
