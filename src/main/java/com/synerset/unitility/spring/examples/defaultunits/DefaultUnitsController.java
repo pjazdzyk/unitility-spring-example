@@ -29,6 +29,13 @@ public class DefaultUnitsController {
         return temperature;
     }
 
+    @GetMapping("/temperatures/by-param")
+    public Temperature getTemperatureByBodyByParam(@RequestParam("tmp") Temperature temperature) {
+        logger.info("ENG format: {}", temperature.toEngineeringFormat());
+        logger.info("ENG format in F: {}", temperature.toFahrenheit().toEngineeringFormat());
+        // Delegate to service, processing
+        return temperature;
+    }
     @PostMapping("/latitude")
     public Latitude getLatitudeByBody(@RequestBody Latitude latitude) {
         logger.info("DMS Format: {}", latitude.toDMSFormat());

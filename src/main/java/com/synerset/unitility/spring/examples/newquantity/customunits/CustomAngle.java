@@ -1,12 +1,14 @@
 package com.synerset.unitility.spring.examples.newquantity.customunits;
 
+import com.synerset.unitility.unitsystem.CalculableQuantity;
 import com.synerset.unitility.unitsystem.PhysicalQuantity;
+import com.synerset.unitility.unitsystem.Unit;
 import com.synerset.unitility.unitsystem.common.AngleUnit;
 import com.synerset.unitility.unitsystem.common.AngleUnits;
 
 import java.util.Objects;
 
-public class CustomAngle implements PhysicalQuantity<AngleUnit> {
+public class CustomAngle implements CalculableQuantity<AngleUnit, CustomAngle> {
 
     private final double value;
     private final double baseValue;
@@ -53,6 +55,7 @@ public class CustomAngle implements PhysicalQuantity<AngleUnit> {
         return CustomAngle.of(degrees, AngleUnits.DEGREES);
     }
 
+
     @Override
     public CustomAngle toUnit(AngleUnit targetUnit) {
         double valueInDegrees = unitType.toValueInBaseUnit(value);
@@ -61,7 +64,6 @@ public class CustomAngle implements PhysicalQuantity<AngleUnit> {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public CustomAngle withValue(double value) {
         return CustomAngle.of(value, unitType);
     }
