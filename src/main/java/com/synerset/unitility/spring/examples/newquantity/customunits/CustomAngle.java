@@ -1,8 +1,6 @@
 package com.synerset.unitility.spring.examples.newquantity.customunits;
 
 import com.synerset.unitility.unitsystem.CalculableQuantity;
-import com.synerset.unitility.unitsystem.PhysicalQuantity;
-import com.synerset.unitility.unitsystem.Unit;
 import com.synerset.unitility.unitsystem.common.AngleUnit;
 import com.synerset.unitility.unitsystem.common.AngleUnits;
 

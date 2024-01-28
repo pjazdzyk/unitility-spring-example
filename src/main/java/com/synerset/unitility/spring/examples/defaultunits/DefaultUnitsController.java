@@ -3,6 +3,7 @@ package com.synerset.unitility.spring.examples.defaultunits;
 import com.synerset.unitility.unitsystem.geographic.GeoCoordinate;
 import com.synerset.unitility.unitsystem.geographic.GeoDistance;
 import com.synerset.unitility.unitsystem.geographic.Latitude;
+import com.synerset.unitility.unitsystem.geographic.Longitude;
 import com.synerset.unitility.unitsystem.thermodynamic.Temperature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,12 +45,21 @@ public class DefaultUnitsController {
         return latitude;
     }
 
+
     @GetMapping("/latitudes/{latitude}")
     public Latitude getLatitudeByParam(@PathVariable("latitude") Latitude latitude) {
         logger.info("DMS Format: {}", latitude.toDMSFormat());
         logger.info("ENG Format: {}", latitude.toEngineeringFormat());
         // Delegate to service, processing
         return latitude;
+    }
+
+    @GetMapping("/longitudes/{longitude}")
+    public Longitude getLatitudeByParam(@PathVariable("longitude") Longitude longitude) {
+        logger.info("DMS Format: {}", longitude.toDMSFormat());
+        logger.info("ENG Format: {}", longitude.toEngineeringFormat());
+        // Delegate to service, processing
+        return longitude;
     }
 
     @PostMapping("/coordinate")
