@@ -1,6 +1,6 @@
 package com.synerset.unitility.spring.examples.newquantity;
 
-import com.synerset.unitility.spring.examples.newquantity.customunits.CustomAngle;
+import com.synerset.unitility.spring.examples.newquantity.customunit.CustomAngle;
 import com.synerset.unitility.unitsystem.common.AngleUnits;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

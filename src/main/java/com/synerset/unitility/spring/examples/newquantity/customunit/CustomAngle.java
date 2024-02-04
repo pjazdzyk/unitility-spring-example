@@ -1,4 +1,4 @@
-package com.synerset.unitility.spring.examples.newquantity.customunits;
+package com.synerset.unitility.spring.examples.newquantity.customunit;
 
 import com.synerset.unitility.unitsystem.CalculableQuantity;
 import com.synerset.unitility.unitsystem.common.AngleUnit;

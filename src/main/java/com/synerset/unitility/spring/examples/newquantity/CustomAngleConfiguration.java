@@ -2,9 +2,9 @@ package com.synerset.unitility.spring.examples.newquantity;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.synerset.unitility.jackson.serdes.PhysicalQuantityDeserializer;
-import com.synerset.unitility.spring.examples.newquantity.customunits.CustomAngle;
-import com.synerset.unitility.spring.serdes.PhysicalQuantityWebMvcConverter;
+import com.synerset.unitility.jackson.serialization.PhysicalQuantityDeserializer;
+import com.synerset.unitility.spring.examples.newquantity.customunit.CustomAngle;
+import com.synerset.unitility.spring.serialization.PhysicalQuantityWebMvcConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;

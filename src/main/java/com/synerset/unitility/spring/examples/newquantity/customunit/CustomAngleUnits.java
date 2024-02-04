@@ -1,11 +1,13 @@
-package com.synerset.unitility.spring.examples.newquantity.customunits;
+package com.synerset.unitility.spring.examples.newquantity.customunit;
 
 import com.synerset.unitility.unitsystem.common.AngleUnit;
 import com.synerset.unitility.unitsystem.common.AngleUnits;
 import com.synerset.unitility.unitsystem.exceptions.UnitSystemArgumentException;
-import com.synerset.unitility.unitsystem.utils.StringTransformer;
+import com.synerset.unitility.unitsystem.util.StringTransformer;
 
 import java.util.function.DoubleUnaryOperator;
+
+import static com.synerset.unitility.unitsystem.common.AngleUnits.getDefaultUnit;
 
 public enum CustomAngleUnits implements AngleUnit {
     REVOLUTIONS("rev", val -> val * 360, val -> val / 360);
@@ -41,6 +43,9 @@ public enum CustomAngleUnits implements AngleUnit {
     }
 
     public static AngleUnit fromSymbol(String rawSymbol) {
+        if (rawSymbol == null || rawSymbol.isBlank()) {
+            return getDefaultUnit();
+        }
         String requestedSymbol = formatSymbol(rawSymbol);
         for (AngleUnit unit : values()) {
             String currentSymbol = formatSymbol(unit.getSymbol());

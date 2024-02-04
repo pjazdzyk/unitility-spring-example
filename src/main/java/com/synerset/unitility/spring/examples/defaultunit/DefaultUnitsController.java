@@ -1,4 +1,4 @@
-package com.synerset.unitility.spring.examples.defaultunits;
+package com.synerset.unitility.spring.examples.defaultunit;
 
 import com.synerset.unitility.unitsystem.geographic.GeoCoordinate;
 import com.synerset.unitility.unitsystem.geographic.GeoDistance;
