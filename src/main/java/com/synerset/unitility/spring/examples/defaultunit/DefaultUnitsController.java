@@ -5,17 +5,20 @@ import com.synerset.unitility.unitsystem.geographic.GeoDistance;
 import com.synerset.unitility.unitsystem.geographic.Latitude;
 import com.synerset.unitility.unitsystem.geographic.Longitude;
 import com.synerset.unitility.unitsystem.thermodynamic.Temperature;
+import com.synerset.unitility.validation.PhysicalRange;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+@Validated
 @RestController
 public class DefaultUnitsController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     @GetMapping("/temperatures/{temperature}")
-    public Temperature getTemperatureByPath(@PathVariable("temperature") Temperature temperature) {
+    public Temperature getTemperatureByPath(@PathVariable("temperature") @PhysicalRange(min = "-20oC", max = "100oC") Temperature temperature) {
         logger.info("ENG format: {}", temperature.toEngineeringFormat());
         logger.info("ENG format in F: {}", temperature.toFahrenheit().toEngineeringFormat());
         // Delegate to service, processing
