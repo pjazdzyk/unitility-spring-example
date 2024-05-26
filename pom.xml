@@ -5,17 +5,16 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.2</version>
+        <version>3.3.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
     <artifactId>unitility-spring-example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Unitility Spring Boot Example</name>
-    <description></description>
     <properties>
         <java.version>17</java.version>
-        <unitility-spring.version>2.3.0</unitility-spring.version>
+        <unitility-spring.version>2.4.1</unitility-spring.version>
     </properties>
 
     <dependencies>
