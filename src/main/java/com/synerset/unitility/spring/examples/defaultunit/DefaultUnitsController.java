@@ -76,7 +76,7 @@ public class DefaultUnitsController {
     @PostMapping("/geodistance")
     public GeoDistance getGeoDistanceByBody(@RequestBody GeoDistance geoDistance) {
         logger.info("Target coordinate in DMS format: {}", geoDistance.getTargetCoordinate().toDMSFormat(3));
-        logger.info("Bearing in decimal degrees: {}", geoDistance.getTrueBearing().getInDegrees());
+        logger.info("Bearing in decimal degrees: {}", geoDistance.getBearing().getInDegrees());
         logger.info("Distance in ENG Format: {}", geoDistance.toEngineeringFormat());
         // Delegate to service, processing
         return geoDistance;

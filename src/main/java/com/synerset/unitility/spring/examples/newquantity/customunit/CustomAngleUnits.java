@@ -7,8 +7,6 @@ import com.synerset.unitility.unitsystem.util.StringTransformer;
 
 import java.util.function.DoubleUnaryOperator;
 
-import static com.synerset.unitility.unitsystem.common.AngleUnits.getDefaultUnit;
-
 public enum CustomAngleUnits implements AngleUnit {
     REVOLUTIONS("rev", val -> val * 360, val -> val / 360);
 
@@ -44,22 +42,33 @@ public enum CustomAngleUnits implements AngleUnit {
 
     public static AngleUnit fromSymbol(String rawSymbol) {
         if (rawSymbol == null || rawSymbol.isBlank()) {
-            return getDefaultUnit();
+            return AngleUnits.DEGREES;
         }
-        String requestedSymbol = formatSymbol(rawSymbol);
+        String requestedSymbol = unifySymbol(rawSymbol);
+
         for (AngleUnit unit : values()) {
-            String currentSymbol = formatSymbol(unit.getSymbol());
+            String currentSymbol = unifySymbol(unit.getSymbol());
             if (currentSymbol.equalsIgnoreCase(requestedSymbol)) {
                 return unit;
             }
         }
+
+        // IMPORTANT: Or also check the base definition of Angle
+        for (AngleUnit unit : AngleUnits.values()) {
+            String currentSymbol = unifySymbol(unit.getSymbol());
+            if (currentSymbol.equalsIgnoreCase(requestedSymbol)) {
+                return unit;
+            }
+        }
+
         throw new UnitSystemArgumentException("Unsupported symbol: " + rawSymbol + ", class: "
                 + AngleUnits.class.getSimpleName());
     }
 
-    private static String formatSymbol(String inputString) {
+    private static String unifySymbol(String inputString) {
         return StringTransformer.of(inputString)
                 .trimLowerAndClean()
+                .unifySymbolsOfAngle()
                 .toString();
     }
 
